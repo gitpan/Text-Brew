@@ -5,7 +5,7 @@ use warnings;
 use Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
-$VERSION     = '0.01';
+$VERSION     = '0.02';
 @ISA         = qw(Exporter);
 @EXPORT      = ();
 @EXPORT_OK   = qw(&distance);
@@ -69,7 +69,7 @@ sub _edit_path {
 
 	foreach my $i (0 .. $m-1) {
 
-		my $sofar=@{ $d[$i][0] };
+		my $sofar= $d[$i][0][0];
 
 		#		cost		move	tb
 		$d[$i+1][0]=[$sofar+$delCost, 	DEL , 	$d[$i][0]];
@@ -77,7 +77,7 @@ sub _edit_path {
 
 	foreach my $j (0 .. $n-1) {
 
-		my $sofar=@{ $d[0][$j] };
+		my $sofar= $d[0][$j][0];
 
 		#		cost		move	tb
 		$d[0][$j+1]=[$sofar+$insCost, 	INS ,	$d[0][$j]];

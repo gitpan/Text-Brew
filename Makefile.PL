@@ -1,8 +1,16 @@
+use strict;
+use warnings;
 use ExtUtils::MakeMaker;
-# See lib/ExtUtils/MakeMaker.pm for details of how to influence
-# the contents of the Makefile that is written.
+
 WriteMakefile(
-	      NAME	=> 'Text::Brew',
-	      VERSION	=> '0.01',
-	      LINKTYPE	=> '$(INST_PM)',
-	     );
+    NAME                => 'Text::Brew',
+    AUTHOR              => 'Keith C. Ivey <kcivey@cpcug.org>',
+    VERSION_FROM        => 'lib/Text/Brew.pm',
+    ABSTRACT_FROM       => 'lib/Text/Brew.pm',
+    PL_FILES            => {},
+    PREREQ_PM => {
+        'Test::More' => 0,
+    },
+    dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+    clean               => { FILES => 'Text-Brew-*' },
+);
